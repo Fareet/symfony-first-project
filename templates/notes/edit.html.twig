@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Изменить заметку{% endblock %}
+
+{% block body %}
+    <h1>Изменить заметку</h1>
+
+    {{ include('notes/_form.html.twig', {'button_label': 'Обновить'}) }}
+
+    <form action="{{ path('app_notes_index') }}">
+        <button class="btn btn-primary w-100 mb-2">Вернутся к списку</button>
+    </form>
+
+    {{ include('notes/_delete_form.html.twig') }}
+{% endblock %}

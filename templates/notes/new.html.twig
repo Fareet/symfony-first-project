@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}New Note{% endblock %}
+
+{% block body %}
+    <h1>Создание новой заметки</h1>
+
+    {{ include('notes/_form.html.twig') }}
+
+    <form action="{{ path('app_notes_index') }}">
+        <button class="btn btn-primary w-100 mb-2">Вернутся к списку</button>
+    </form>
+{% endblock %}

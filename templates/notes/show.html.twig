@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Note{% endblock %}
+
+{% block body %}
+    <h1>Просмотр заметки</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Заголовок</th>
+                <td>{{ note.title }}</td>
+            </tr>
+            <tr>
+                <th>Текст</th>
+                <td class="show_note_text">{{ note.text }}</td>
+            </tr>
+            <tr>
+                <th>Выполнена:</th>
+                <td>{{ note.complete ? 'Да' : 'Нет' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="actions_block">
+        <form action="{{ path('app_notes_index') }}">
+            <button class="btn btn-primary w-100 mb-2">Вернутся к списку</button>
+        </form>
+        <form action="{{ path('app_notes_edit', {'id': note.id}) }}">
+            <button class="btn btn-primary w-100 mb-2">Изменить</button>
+        </form>
+        {{ include('notes/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
